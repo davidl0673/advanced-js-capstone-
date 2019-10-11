@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./src/index.js --watch ./src",
+    "test": "nyc mocha ./test/**/*.test.js --require=./test/test-helper.js --timeout=20000"
   },
   "keywords": [],
   "author": "",

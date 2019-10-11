@@ -4,7 +4,6 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 const AuthController = require("./controllers/auth.controller");
-const PostController = require("./controllers/post.controller");
 const UserController = require("./controllers/user.controller");
 
 const app = express();
@@ -13,7 +12,6 @@ app.use(morgan("tiny"));
 app.use(express.json());
 
 app.use("/auth", AuthController);
-app.use("/post", PostController);
 app.use("/users", UserController);
 
 const connectDatabase = async (
