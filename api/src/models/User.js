@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const { Schema } = mongoose;
+const { ObjectId } = Schema.Types;
 
 const userSchema = Schema(
   {
@@ -13,7 +14,9 @@ const userSchema = Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    followers: [ObjectId],
+    following: [ObjectId]
   },
   {
     timestamps: true,
@@ -26,11 +29,11 @@ const userSchema = Schema(
   }
 );
 
-userSchema.virtual("posts", {
-  ref: "Post",
-  foreignField: "user",
+userSchema.virtual("chirps", {
+  ref: "Chirp",
   localField: "_id",
-  onlyOne: false
+  foreignField: "user",
+  justOne: false
 });
 
 userSchema.statics.signUp = async function(email, password) {
