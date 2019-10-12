@@ -26,7 +26,7 @@ router.post(
   [...createValidators, jwtMiddleware, handleValidationErrors],
   async (req, res) => {
     const shoppinglist = new ShoppingList();
-    shoppinglist.items = req.body.items;
+    shoppinglist.item = req.body.item;
     shoppinglist.user = req.user;
 
     await shoppinglist.save();
