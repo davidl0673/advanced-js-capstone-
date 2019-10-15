@@ -1,7 +1,5 @@
 import React, { useGlobal } from "reactn";
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
 import "./App.css";
 import Home from "./pages/Home";
 // import NotFound from './pages/NotFound';
@@ -12,6 +10,7 @@ import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
 import User from "./pages/User";
 import ShoppingList from "./pages/ShoppingList";
+import Schedule from "./pages/Schedule";
 
 const NavBar = () => {
   const { 0: token } = useGlobal("token");
@@ -24,11 +23,7 @@ const NavBar = () => {
             Home
           </Link>
         </li>
-        <li>
-          <Link type="li" to="/shoppinglist">
-            ShoppingList
-          </Link>
-        </li>
+
         {!token && (
           <>
             <li>
@@ -36,6 +31,7 @@ const NavBar = () => {
                 Login
               </Link>
             </li>
+
             <li>
               <Link type="li" to="/sign-up">
                 Sign-up
@@ -48,6 +44,17 @@ const NavBar = () => {
             <li>
               <Link type="li" to="/profile">
                 Profile
+              </Link>
+            </li>
+            <li>
+              <Link type="li" to="/schedule">
+                Schedule
+              </Link>
+            </li>
+
+            <li>
+              <Link type="li" to="/ShoppingList">
+                ShoppingList
               </Link>
             </li>
             <li>
@@ -64,7 +71,7 @@ function App() {
   return (
     <>
       <Router>
-        <h1>farm assistant beatch </h1>
+        <h1 className="header1 ">farm assistant beatch </h1>
         <Route path="/" exact component={Home} />
         <NavBar />
         <Route path="/login" component={Login} />
@@ -72,6 +79,8 @@ function App() {
         <Route path="/user/:userId" component={User} />
         <PrivateRoute path="/profile" component={Profile} />
         {/* <Route component={NotFound} /> */}
+        <Route path="/ShoppingList" exact component={ShoppingList} />
+        <Route path="/Schedule" exact component={Schedule} />
       </Router>
     </>
   );

@@ -1,19 +1,19 @@
 import React, { useState, useGlobal, useEffect } from "reactn";
 import client from "../api/client";
 
-const ShoppingListForm = props => {
+const ScheduleForm = props => {
   const [body, setBody] = useState("");
-  const [items, setItems] = useState([]);
+  const [tasks, setTasks] = useState([]);
   const { 0: token } = useGlobal("token");
 
   // get the shopping list using useEffect
-  const postShoppingList = async e => {
+  const postSchedule = async e => {
     e.preventDefault();
 
     const { data } = await client.post(
-      "/shoppinglist",
+      "/schedule",
       {
-        item: body
+        task: body
       },
       {
         headers: { Authorization: `Bearer ${token}` }
@@ -22,27 +22,27 @@ const ShoppingListForm = props => {
 
     setBody("");
 
-    setItems([...items, data]);
+    setTasks([...tasks, data]);
     // Add the new shopping list item to your local state
 
     if (props.onSuccess) props.onSuccess(data);
   };
 
-  const getItems = async () => {
+  const getTasks = async () => {
     const { data } = await client.get("/schedule/");
-    setItems(data);
+    setTasks(data);
   };
 
   useEffect(() => {
-    getItems();
+    getTasks();
   }, []);
   return (
     <>
-      <form onSubmit={postShoppingList}>
+      <form onSubmit={postSchedule}>
         <div>
           <input
             type="text"
-            placeholder="shit you need?"
+            placeholder="add a task"
             onChange={e => setBody(e.target.value)}
             value={body}
           />
@@ -50,8 +50,8 @@ const ShoppingListForm = props => {
         <div>
           <button>Post</button>
           <div>
-            {items.map(item => (
-              <div key={item._id}>{item.item}</div>
+            {tasks.map(task => (
+              <div key={task._id}>{task.task}</div>
             ))}
           </div>
         </div>
@@ -60,4 +60,4 @@ const ShoppingListForm = props => {
   );
 };
 
-export default ShoppingListForm;
+export default ScheduleForm;

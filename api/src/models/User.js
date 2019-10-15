@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-
 const { Schema } = mongoose;
 const { ObjectId } = Schema.Types;
 
@@ -14,9 +13,7 @@ const userSchema = Schema(
     password: {
       type: String,
       required: true
-    },
-    followers: [ObjectId],
-    following: [ObjectId]
+    }
   },
   {
     timestamps: true,
@@ -29,8 +26,14 @@ const userSchema = Schema(
   }
 );
 
-userSchema.virtual("chirps", {
-  ref: "Chirp",
+userSchema.virtual("shoppinglist", {
+  ref: "ShoppingList",
+  localField: "_id",
+  foreignField: "user",
+  justOne: false
+});
+userSchema.virtual("schedule", {
+  ref: "Schedule",
   localField: "_id",
   foreignField: "user",
   justOne: false

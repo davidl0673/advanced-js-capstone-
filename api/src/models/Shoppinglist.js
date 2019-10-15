@@ -3,17 +3,21 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { ObjectId } = Schema.Types;
 
-const shoppinglistSchema = {
-  item: {
-    type: String,
-    required: true
+const shoppinglistSchema = Schema(
+  {
+    item: {
+      type: String,
+      required: true
+    },
+    user: {
+      type: ObjectId,
+      ref: "User"
+    }
   },
-  user: {
-    type: ObjectId,
-    ref: "User",
-    required: true
+  {
+    timestamps: true
   }
-};
+);
 
 const ShoppingList = mongoose.model("ShoppingList", shoppinglistSchema);
 

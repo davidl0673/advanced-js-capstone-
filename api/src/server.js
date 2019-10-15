@@ -6,6 +6,7 @@ const cors = require("cors");
 const AuthController = require("./controllers/auth.controller");
 const UserController = require("./controllers/user.controller");
 const ShoppingListController = require("./controllers/shoppinglist.controller");
+const ScheduleController = require("./controllers/schedule.controller");
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/auth", AuthController);
 app.use("/users", UserController);
 app.use("/shoppinglist", ShoppingListController);
+app.use("/schedule", ScheduleController);
 
 const connectDatabase = async (
   databaseName = "Farm-Helper",

@@ -1,5 +1,4 @@
 import React from "reactn";
-import client from "../api/client";
 
 const Home = () => {
   return (
