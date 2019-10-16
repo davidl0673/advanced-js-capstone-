@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
   });
 
   res.send(shoppinglist);
+  console.log(shoppinglist);
 });
 
 // Create

@@ -38,24 +38,26 @@ const ShoppingListForm = props => {
   }, []);
   return (
     <>
-      <form onSubmit={postShoppingList}>
-        <div>
-          <input
-            type="text"
-            placeholder="shit you need?"
-            onChange={e => setBody(e.target.value)}
-            value={body}
-          />
-        </div>
-        <div>
-          <button>Post</button>
+      <div className="card1">
+        <form onSubmit={postShoppingList}>
           <div>
-            {items.map(item => (
-              <div key={item._id}>{item.item}</div>
-            ))}
+            <input
+              type="text"
+              placeholder="shit you need?"
+              onChange={e => setBody(e.target.value)}
+              value={body}
+            />
           </div>
-        </div>
-      </form>
+          <div>
+            <button>Post</button>
+            <div>
+              {items.map(item => (
+                <div key={item._id}>{item.item}</div>
+              ))}
+            </div>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

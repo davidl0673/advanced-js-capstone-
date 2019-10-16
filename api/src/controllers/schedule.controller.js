@@ -12,7 +12,7 @@ const updateValidators = [check("body").exists];
 
 // List
 router.get("/", async (req, res) => {
-  const schedule = await schedule.find({}).populate({
+  const schedule = await Schedule.find({}).populate({
     path: "replies.user user"
   });
 

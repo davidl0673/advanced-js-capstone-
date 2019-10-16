@@ -1,8 +1,16 @@
+import "react-widgets/dist/css/react-widgets.css";
+
 import React, { setGlobal, addCallback } from "reactn";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+
+import Moment from "moment";
+import momentLocalizer from "react-widgets-moment";
+
+Moment.locale("en");
+momentLocalizer();
 
 const initialState = {
   token: null

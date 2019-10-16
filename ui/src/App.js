@@ -71,7 +71,7 @@ function App() {
   return (
     <>
       <Router>
-        <h1 className="header1 ">farm assistant beatch </h1>
+        <h1 className="header1 ">farm assistant </h1>
         <Route path="/" exact component={Home} />
         <NavBar />
         <Route path="/login" component={Login} />

@@ -1,5 +1,7 @@
 import React, { useState, useGlobal, useEffect } from "reactn";
 import client from "../api/client";
+import User from "../pages/User";
+import "./Component.css";
 
 const ScheduleForm = props => {
   const [body, setBody] = useState("");
@@ -13,7 +15,8 @@ const ScheduleForm = props => {
     const { data } = await client.post(
       "/schedule",
       {
-        task: body
+        task: body,
+        date: new Date()
       },
       {
         headers: { Authorization: `Bearer ${token}` }
@@ -38,24 +41,26 @@ const ScheduleForm = props => {
   }, []);
   return (
     <>
-      <form onSubmit={postSchedule}>
-        <div>
-          <input
-            type="text"
-            placeholder="add a task"
-            onChange={e => setBody(e.target.value)}
-            value={body}
-          />
-        </div>
-        <div>
-          <button>Post</button>
+      <div className="card1">
+        <form onSubmit={postSchedule}>
           <div>
-            {tasks.map(task => (
-              <div key={task._id}>{task.task}</div>
-            ))}
+            <input
+              type="text"
+              placeholder="add a task"
+              onChange={e => setBody(e.target.value)}
+              value={body}
+            />
           </div>
-        </div>
-      </form>
+          <div>
+            <button>Post</button>
+            <div>
+              {tasks.map(task => (
+                <div key={task._id}>{task.task}</div>
+              ))}
+            </div>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
