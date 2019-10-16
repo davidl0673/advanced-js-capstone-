@@ -1,16 +1,8 @@
 import React from "reactn";
-import { DateTimePicker } from "react-widgets";
+import "../App.css";
 
 const Home = () => {
-  const getValue = v => console.log(v);
-  return (
-    <div>
-      <h1>Home</h1>
-      <div>
-        <DateTimePicker />
-      </div>
-    </div>
-  );
+  return <div>Home</div>;
 };
 
 export default Home;

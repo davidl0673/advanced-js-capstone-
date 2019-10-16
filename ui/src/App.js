@@ -16,7 +16,7 @@ const NavBar = () => {
   const { 0: token } = useGlobal("token");
 
   return (
-    <nav>
+    <nav className="card1">
       <ul>
         <li>
           <Link type="li" to="/">
@@ -71,7 +71,7 @@ function App() {
   return (
     <>
       <Router>
-        <h1 className="header1 ">farm assistant </h1>
+        <h1 className="header1">farm assistant </h1>
         <Route path="/" exact component={Home} />
         <NavBar />
         <Route path="/login" component={Login} />

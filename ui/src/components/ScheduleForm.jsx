@@ -2,32 +2,33 @@ import React, { useState, useGlobal, useEffect } from "reactn";
 import client from "../api/client";
 import User from "../pages/User";
 import "./Component.css";
+import { DateTimePicker } from "react-widgets";
 
 const ScheduleForm = props => {
   const [body, setBody] = useState("");
   const [tasks, setTasks] = useState([]);
   const { 0: token } = useGlobal("token");
+  const [date, setDate] = useState(new Date());
 
-  // get the shopping list using useEffect
+  const handleDateChange = _date => {
+    console.log(_date);
+    setDate(_date);
+  };
+
   const postSchedule = async e => {
     e.preventDefault();
-
     const { data } = await client.post(
       "/schedule",
       {
         task: body,
-        date: new Date()
+        date: date
       },
       {
         headers: { Authorization: `Bearer ${token}` }
       }
     );
-
     setBody("");
-
     setTasks([...tasks, data]);
-    // Add the new shopping list item to your local state
-
     if (props.onSuccess) props.onSuccess(data);
   };
 
@@ -39,6 +40,7 @@ const ScheduleForm = props => {
   useEffect(() => {
     getTasks();
   }, []);
+
   return (
     <>
       <div className="card1">
@@ -61,8 +63,13 @@ const ScheduleForm = props => {
           </div>
         </form>
       </div>
+      <div className="card1">
+        <DateTimePicker onChange={handleDateChange} />
+      </div>
     </>
   );
 };
 
 export default ScheduleForm;
+
+//no idea how to handle putting the date together with the schedule
