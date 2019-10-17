@@ -13,9 +13,6 @@ const ScheduleForm = props => {
   const [date, setDate] = useState(new Date());
 
   const handleDateChange = _date => {
-    const dateAssign = moment(_date).days();
-    console.log(dateAssign);
-
     setDate(_date);
   };
 
@@ -44,6 +41,20 @@ const ScheduleForm = props => {
   useEffect(() => {
     getTasks();
   }, []);
+
+  const days = {};
+
+  if (tasks) {
+    tasks.forEach(task => {
+      // const day = moment(task.date).format("MM/d/YYYY");
+      const day = moment(task.date).format("LLLL");
+      if (days[day]) {
+        days[day].push(task);
+      } else {
+        days[day] = [task];
+      }
+    });
+  }
 
   return (
     <>
@@ -74,10 +85,43 @@ const ScheduleForm = props => {
           </div>
         </form>
       </div>
+      {Object.keys(days).map(day => {
+        const tasks = days[day];
+        return (
+          <div className="dayscard">
+            <h2>{day}</h2>
+            <div>{JSON.stringify(tasks)}</div>
+          </div>
+        );
+      })}
+      {/* <div className="dayscard">
+        <h2>Monday</h2>
+        <li>placeholder text</li>
+      </div>
+      <div className="dayscard">
+        <h2>Tuesday</h2>
+        <li>placeholder text</li>
+      </div>
+      <div className="dayscard">
+        <h2>Thursday</h2>
+        <li>placeholder text</li>
+      </div>
+      <div className="dayscard">
+        <h2>Friday</h2>
+        <li>placeholder text</li>
+      </div>
+      <div className="dayscard">
+        <h2>Saturday</h2>
+        <li>placeholder text</li>
+      </div>
+      <div className="dayscard">
+        <h2>Sunday</h2>
+        <li>placeholder text</li>
+      </div> */}
     </>
   );
 };
 
 export default ScheduleForm;
 
-//no idea how to handle putting the date together with the schedule
+//i dont like the date storing  format all
