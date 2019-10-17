@@ -3,6 +3,7 @@ import client from "../api/client";
 import User from "../pages/User";
 import "./Component.css";
 import { DateTimePicker } from "react-widgets";
+import moment from "moment";
 
 const ScheduleForm = props => {
   const [body, setBody] = useState("");
@@ -43,7 +44,11 @@ const ScheduleForm = props => {
 
   return (
     <>
-      <div className="card1">
+      <div className="card2">
+        <DateTimePicker onChange={handleDateChange} />
+      </div>
+
+      <div className="card2">
         <form onSubmit={postSchedule}>
           <div>
             <input
@@ -57,14 +62,14 @@ const ScheduleForm = props => {
             <button>Post</button>
             <div>
               {tasks.map(task => (
-                <div key={task._id}>{task.task}</div>
+                <div key={task._id}>
+                  {task.task}
+                  {moment(task.date).format("MM/DD/YYYY hh:mma")}
+                </div>
               ))}
             </div>
           </div>
         </form>
-      </div>
-      <div className="card1">
-        <DateTimePicker onChange={handleDateChange} />
       </div>
     </>
   );
