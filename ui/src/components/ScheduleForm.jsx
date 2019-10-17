@@ -4,6 +4,7 @@ import User from "../pages/User";
 import "./Component.css";
 import { DateTimePicker } from "react-widgets";
 import moment from "moment";
+import { number } from "prop-types";
 
 const ScheduleForm = props => {
   const [body, setBody] = useState("");
@@ -12,7 +13,9 @@ const ScheduleForm = props => {
   const [date, setDate] = useState(new Date());
 
   const handleDateChange = _date => {
-    console.log(_date);
+    const dateAssign = moment(_date).days();
+    console.log(dateAssign);
+
     setDate(_date);
   };
 
