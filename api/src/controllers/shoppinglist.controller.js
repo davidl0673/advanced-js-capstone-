@@ -1,6 +1,6 @@
 const { AsyncRouter } = require("express-async-router");
 const { check, validationResult } = require("express-validator");
-const ShoppingList = require("../models/ShoppingList");
+const ShoppingList = require("../models/Shoppinglist");
 const handleValidationErrors = require("../helpers/handleValidationErrors");
 const jwtMiddleware = require("../helpers/jwtMiddleware");
 

@@ -58,43 +58,8 @@ const ScheduleForm = props => {
 
   return (
     <>
-      <div className="card2">
-        <DateTimePicker onChange={handleDateChange} />
-      </div>
-
-      <div className="card2">
-        <form onSubmit={postSchedule}>
-          <div>
-            <input
-              type="text"
-              placeholder="add a task"
-              onChange={e => setBody(e.target.value)}
-              value={body}
-            />
-          </div>
-          <div>
-            <button>Post</button>
-            <div>
-              {tasks.map(task => (
-                <div key={task._id}>
-                  {task.task}
-                  {moment(task.date).format("MM/DD/YYYY hh:mma")}
-                </div>
-              ))}
-            </div>
-          </div>
-        </form>
-      </div>
-      {Object.keys(days).map(day => {
-        const tasks = days[day];
-        return (
-          <div className="dayscard">
-            <h2>{day}</h2>
-            <div>{JSON.stringify(tasks)}</div>
-          </div>
-        );
-      })}
-      {/* <div className="dayscard">
+    {/* <h1>Daily schedule!</h1>
+        <div className="dayscard">
         <h2>Monday</h2>
         <li>placeholder text</li>
       </div>
@@ -118,6 +83,50 @@ const ScheduleForm = props => {
         <h2>Sunday</h2>
         <li>placeholder text</li>
       </div> */}
+
+      <div className="card2">
+        <DateTimePicker onChange={handleDateChange} />
+      </div>
+
+      <div className="card2">
+        <form onSubmit={postSchedule}>
+          <div>
+            <input
+              type="text"
+              placeholder="add a task"
+              onChange={e => setBody(e.target.value)}
+              value={body}
+            />
+          </div>
+          <div>
+            <button>Post</button>
+            <div>
+            
+              {tasks.map(task => (
+                <div key={task._id}>
+                  {task.task}
+                  {moment(task.date).format("MM/DD/YYYY hh:mma")}
+                </div>
+              ))}
+            </div>
+          </div>
+        </form>
+        <h1>Upcoming tasks</h1>
+      </div>
+      {Object.keys(days).map(day => {
+        const tasks = days[day];
+        return (
+          <div key={day} className="dayscard">
+            <h2>{day}</h2>
+            <div>
+              {tasks.map((task) => (
+                <div key={tasks._id}>{task.task}</div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+  
     </>
   );
 };
