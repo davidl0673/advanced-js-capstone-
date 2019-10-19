@@ -24,7 +24,6 @@ body {
   background-image: url("./assets/green1.jpg");
   width: 100vw;
   height: 100vh;
-  
 }
 
 .header1 {
@@ -32,17 +31,15 @@ body {
   border: 1px black solid;
 }
 
+img {
+  height: 50%;
+  width: 50%;
+  border-radius: 5px;
+}
 
-img{
-height: 50%;
-width: 50%;
-
-} 
-
-
-.farm{
+.farm {
   padding: 0;
   display: flex;
   flex-direction: column;
-align-items: center;  
-};  
+  align-items: center;
+}

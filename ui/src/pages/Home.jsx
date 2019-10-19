@@ -16,6 +16,8 @@ const Home = () => {
         <p>hopfully this helps in some way </p>
 
         <img src={farm} alt="" />
+
+        <div> heres some things that this appication can do for you !!</div>
       </div>
     </>
   );
