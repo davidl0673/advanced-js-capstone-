@@ -13,9 +13,16 @@ import ShoppingList from "./pages/ShoppingList";
 import Schedule from "./pages/Schedule";
 
 const NavBar = () => {
-  const { 0: token } = useGlobal("token");
+  const [token , setToken ] = useGlobal("token");
+
+  const logout = () => {
+    setToken(null)
+
+  
+  }
 
   return (
+
     <nav className="card1">
       <ul>
         <li>
@@ -58,8 +65,10 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Logout />
-            </li>
+            <Link type="li" onClick={logout} to="#">
+              Logout
+              </Link>
+              </li>
           </>
         )}
       </ul>

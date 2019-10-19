@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -6,25 +6,43 @@
   height: 40vmin;
 }
 
-.App-header {
+ .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} 
 
 .App-link {
   color: #09d3ac;
-}
+} */
 
 body {
   background-image: url("./assets/green1.jpg");
+  width: 100vw;
+  height: 100vh;
+  
 }
 
 .header1 {
   background-color: rgb(5, 99, 5);
+  border: 1px black solid;
 }
+
+
+img{
+height: 50%;
+width: 50%;
+
+} 
+
+
+.farm{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+align-items: center;  
+};  
