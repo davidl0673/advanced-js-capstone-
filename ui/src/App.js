@@ -13,16 +13,13 @@ import ShoppingList from "./pages/ShoppingList";
 import Schedule from "./pages/Schedule";
 
 const NavBar = () => {
-  const [token , setToken ] = useGlobal("token");
+  const [token, setToken] = useGlobal("token");
 
   const logout = () => {
-    setToken(null)
-
-  
-  }
+    setToken(null);
+  };
 
   return (
-
     <nav className="card1">
       <ul>
         <li>
@@ -65,10 +62,10 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-            <Link type="li" onClick={logout} to="#">
-              Logout
+              <Link type="li" onClick={logout} to="#">
+                Logout
               </Link>
-              </li>
+            </li>
           </>
         )}
       </ul>
@@ -88,8 +85,8 @@ function App() {
         <Route path="/user/:userId" component={User} />
         <PrivateRoute path="/profile" component={Profile} />
         {/* <Route component={NotFound} /> */}
-        <Route path="/ShoppingList" exact component={ShoppingList} />
-        <Route path="/Schedule" exact component={Schedule} />
+        <Route path="/ShoppingList" component={ShoppingList} />
+        <Route path="/Schedule" component={Schedule} />
       </Router>
     </>
   );

@@ -17,6 +17,7 @@
     "concurrently": "^5.0.0",
     "mdbootstrap": "^4.8.10",
     "mdbreact": "^4.21.1",
+    "react-open-weather": "^0.5.2",
     "typeface-roboto": "^0.0.75"
   }
 }

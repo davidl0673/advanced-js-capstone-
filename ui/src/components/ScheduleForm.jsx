@@ -58,7 +58,7 @@ const ScheduleForm = props => {
 
   return (
     <>
-    {/* <h1>Daily schedule!</h1>
+      {/* <h1>Daily schedule!</h1>
         <div className="dayscard">
         <h2>Monday</h2>
         <li>placeholder text</li>
@@ -101,7 +101,6 @@ const ScheduleForm = props => {
           <div>
             <button>Post</button>
             <div>
-            
               {tasks.map(task => (
                 <div key={task._id}>
                   {task.task}
@@ -119,14 +118,13 @@ const ScheduleForm = props => {
           <div key={day} className="dayscard">
             <h2>{day}</h2>
             <div>
-              {tasks.map((task) => (
+              {tasks.map(task => (
                 <div key={tasks._id}>{task.task}</div>
               ))}
             </div>
           </div>
         );
       })}
-  
     </>
   );
 };
