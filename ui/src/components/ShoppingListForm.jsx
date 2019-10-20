@@ -29,7 +29,7 @@ const ShoppingListForm = props => {
   };
 
   const getItems = async () => {
-    const { data } = await client.get("/schedule/");
+    const { data } = await client.get("/shoppinglist/");
     setItems(data);
   };
 

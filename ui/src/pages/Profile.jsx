@@ -7,13 +7,16 @@ const Profile = () => {
 
   useEffect(() => {
     const getProfile = async () => {
-      const { data } = await client.get("/auth/profile", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-      setProfile(data);
+      try {
+        const { data } = await client.get("/auth/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        setProfile(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getProfile();

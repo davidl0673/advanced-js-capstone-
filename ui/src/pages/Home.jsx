@@ -1,5 +1,4 @@
 import React from "reactn";
-import { Jumbotron } from "react-bootstrap";
 import farm from "../assets/farm.jpg";
 
 import "../App.css";
