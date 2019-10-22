@@ -76,7 +76,7 @@ const Navbar2 = () => {
           </ListItem>
         </List>
       </Drawer>
-      <AppBar position="static">
+      <AppBar style={{ backgroundColor: "green" }} position="static">
         <Toolbar>
           <IconButton
             onClick={() => setDrawerOpen(true)}
@@ -87,7 +87,7 @@ const Navbar2 = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            Hello
           </Typography>
           {!token && (
             <>
@@ -115,7 +115,7 @@ function App() {
     <>
       <Router>
         <Navbar2 />
-        <h1 className="header1">farm assistant </h1>
+        <h1 className="header1">Welcome to my farm assistant </h1>
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/sign-up" component={SignUp} />

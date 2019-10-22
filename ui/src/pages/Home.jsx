@@ -7,8 +7,6 @@ import GetWeather from "../components/Weather";
 const Home = () => {
   return (
     <>
-      {/* <Jumbotron className="jumbofun">
-      </Jumbotron> */}
       <GetWeather />
       <div className="farm">
         <h1>welcome to myfarm assistant</h1>

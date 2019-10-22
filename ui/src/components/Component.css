@@ -44,3 +44,7 @@
   background-color: rgb(5, 99, 5);
   border: 1px black solid;
 }
+
+.classes.card {
+  background-color: black;
+}

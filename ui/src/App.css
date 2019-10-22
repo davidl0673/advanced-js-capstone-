@@ -43,7 +43,3 @@ img {
   flex-direction: column;
   align-items: center;
 }
-
-.MuiDrawer-paperAnchorLeft {
-  min-width: 250px;
-}

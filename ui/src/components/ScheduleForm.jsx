@@ -4,13 +4,24 @@ import User from "../pages/User";
 import "./Component.css";
 import { DateTimePicker } from "react-widgets";
 import moment from "moment";
-import { number } from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 345
+  }
+});
 
 const ScheduleForm = props => {
   const [body, setBody] = useState("");
   const [tasks, setTasks] = useState([]);
   const { 0: token } = useGlobal("token");
   const [date, setDate] = useState(new Date());
+  const classes = useStyles();
 
   const handleDateChange = _date => {
     setDate(_date);
@@ -58,32 +69,6 @@ const ScheduleForm = props => {
 
   return (
     <>
-      {/* <h1>Daily schedule!</h1>
-        <div className="dayscard">
-        <h2>Monday</h2>
-        <li>placeholder text</li>
-      </div>
-      <div className="dayscard">
-        <h2>Tuesday</h2>
-        <li>placeholder text</li>
-      </div>
-      <div className="dayscard">
-        <h2>Thursday</h2>
-        <li>placeholder text</li>
-      </div>
-      <div className="dayscard">
-        <h2>Friday</h2>
-        <li>placeholder text</li>
-      </div>
-      <div className="dayscard">
-        <h2>Saturday</h2>
-        <li>placeholder text</li>
-      </div>
-      <div className="dayscard">
-        <h2>Sunday</h2>
-        <li>placeholder text</li>
-      </div> */}
-
       <div className="card2">
         <DateTimePicker onChange={handleDateChange} />
       </div>
@@ -100,19 +85,19 @@ const ScheduleForm = props => {
           </div>
           <div>
             <button>Post</button>
-            <div>
+            {/* <div>
               {tasks.map(task => (
                 <div key={task._id}>
                   {task.task}
                   {moment(task.date).format("MM/DD/YYYY hh:mma")}
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </form>
         <h1>Upcoming tasks</h1>
       </div>
-      {Object.keys(days).map(day => {
+      {/* {Object.keys(days).map(day => {
         const tasks = days[day];
         return (
           <div key={day} className="dayscard">
@@ -124,7 +109,32 @@ const ScheduleForm = props => {
             </div>
           </div>
         );
-      })}
+      })} */}
+
+      <div
+        style={{
+          display: "flex",
+          margin: "50px"
+        }}>
+        {Object.keys(days).map(day => {
+          const tasks = days[day];
+          return (
+            <Card key={day} className={classes.card}>
+              <CardActionArea>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {day}
+                  </Typography>
+
+                  {tasks.map(task => (
+                    <div key={tasks._id}>{task.task}</div>
+                  ))}
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          );
+        })}
+      </div>
     </>
   );
 };
