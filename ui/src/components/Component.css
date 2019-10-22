@@ -48,3 +48,8 @@
 .classes.card {
   background-color: black;
 }
+
+.weathericon {
+  width: 100px;
+  height: 100px;
+}
