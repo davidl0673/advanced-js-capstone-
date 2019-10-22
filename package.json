@@ -18,6 +18,8 @@
     "mdbootstrap": "^4.8.10",
     "mdbreact": "^4.21.1",
     "react-open-weather": "^0.5.2",
+    "react-swipeable-views": "^0.13.3",
+    "react-swipeable-views-utils": "^0.13.3",
     "typeface-roboto": "^0.0.75"
   }
 }
