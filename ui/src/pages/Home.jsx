@@ -2,6 +2,8 @@ import React from "reactn";
 import farm from "../assets/farm.jpg";
 import garden from "../assets/garden.jpg";
 import outside from "../assets/outside.jpg";
+import sunset from "../assets/sunset.jpg";
+import cow from "../assets/cow.jpg";
 import "../App.css";
 import GetWeather from "../components/Weather";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -18,26 +20,24 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: "garden stuff related to stuff",
+    label: "Enhance the way you think about gardening",
     imgPath: garden
   },
   {
-    label: "outside",
+    label: "get the help you need ",
     imgPath: outside
   },
   {
-    label: "Bali, Indonesia",
+    label: "inspirational quote #768934",
     imgPath: farm
   },
   {
-    label: "NeONBRAND Digital Marketing, Las Vegas, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60"
+    label: "its so easy anyone can do it!",
+    imgPath: cow
   },
   {
-    label: "Goč, Serbia",
-    imgPath:
-      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
+    label: "go you!",
+    imgPath: sunset
   }
 ];
 

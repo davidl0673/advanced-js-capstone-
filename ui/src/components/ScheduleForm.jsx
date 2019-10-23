@@ -95,7 +95,7 @@ const ScheduleForm = props => {
             </div> */}
           </div>
         </form>
-        <h1>Upcoming tasks</h1>
+        <h1 className="header1">Upcoming tasks</h1>
       </div>
       {/* {Object.keys(days).map(day => {
         const tasks = days[day];
@@ -113,13 +113,18 @@ const ScheduleForm = props => {
 
       <div
         style={{
-          display: "flex",
-          margin: "50px"
+          display: "grid",
+          margin: "50px",
+          gridTemplateColumns: "repeat(7, 1fr)",
+          gridGap: "2em"
         }}>
         {Object.keys(days).map(day => {
           const tasks = days[day];
           return (
-            <Card key={day} className={classes.card}>
+            <Card
+              key={day}
+              className={classes.card}
+              style={{ minHeight: "200px" }}>
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
