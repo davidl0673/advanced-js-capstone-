@@ -57,20 +57,26 @@ const SignUpForm = props => {
           value={formState.email}
           placeholder="E-mail..."
         />
-        <input
-          type="password"
-          name="password"
-          onChange={handleUpdate}
-          value={formState.password}
-          placeholder="Password..."
-        />
-        <input
-          type="password"
-          name="passwordConfirm"
-          onChange={handleUpdate}
-          value={formState.passwordConfirm}
-          placeholder="Confirm password..."
-        />
+        <div>
+          <h1>Password</h1>
+          <input
+            type="password"
+            name="password"
+            onChange={handleUpdate}
+            value={formState.password}
+            placeholder="Password..."
+          />
+        </div>
+        <div>
+          <h1>Confirm password </h1>
+          <input
+            type="password"
+            name="passwordConfirm"
+            onChange={handleUpdate}
+            value={formState.passwordConfirm}
+            placeholder="Confirm password..."
+          />
+        </div>
         <button>Sign Up</button>
       </form>
     </div>

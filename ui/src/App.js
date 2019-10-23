@@ -57,25 +57,27 @@ const Navbar2 = () => {
 
   return (
     <div className={classes.root}>
-      <Drawer
-        className="drawer"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}>
-        <List>
-          <ListItem onClick={() => goToPage("")} button>
-            <ListItemText primary="Home"></ListItemText>
-          </ListItem>
-          <ListItem onClick={() => goToPage("profile")} button>
-            <ListItemText primary="Profile"></ListItemText>
-          </ListItem>
-          <ListItem onClick={() => goToPage("schedule")} button>
-            <ListItemText primary="Schedule"></ListItemText>
-          </ListItem>
-          <ListItem onClick={() => goToPage("shoppinglist")} button>
-            <ListItemText primary="Shoppinglist"></ListItemText>
-          </ListItem>
-        </List>
-      </Drawer>
+      {token && (
+        <Drawer
+          className="drawer"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}>
+          <List>
+            <ListItem onClick={() => goToPage("")} button>
+              <ListItemText primary="Home"></ListItemText>
+            </ListItem>
+            <ListItem onClick={() => goToPage("profile")} button>
+              <ListItemText primary="Profile"></ListItemText>
+            </ListItem>
+            <ListItem onClick={() => goToPage("schedule")} button>
+              <ListItemText primary="Schedule"></ListItemText>
+            </ListItem>
+            <ListItem onClick={() => goToPage("shoppinglist")} button>
+              <ListItemText primary="Shoppinglist"></ListItemText>
+            </ListItem>
+          </List>
+        </Drawer>
+      )}
       <AppBar style={{ backgroundColor: "green" }} position="static">
         <Toolbar>
           <IconButton
@@ -94,7 +96,7 @@ const Navbar2 = () => {
               <Button onClick={() => goToPage("login")} color="inherit">
                 Login
               </Button>
-              <Button onClick={() => goToPage("signup")} color="inherit">
+              <Button onClick={() => goToPage("sign-up")} color="inherit">
                 Sign up
               </Button>
             </>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useGlobal } from "reactn";
 import client from "../api/client";
+import "../App.css";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -23,12 +24,12 @@ const Profile = () => {
   }, [token]);
 
   return (
-    <div>
+    <div className="card2">
       <h1>Profile:</h1>
       {profile && (
         <div>
           <div>
-            <div>testing profile page</div>
+            <div>Welcome!</div>
             <em>{profile.email}</em>
           </div>
         </div>

@@ -12,6 +12,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 3px;
+  background-color: green;
+  width: 600px;
 }
 .card1 li {
   display: inline-block;
@@ -21,11 +23,11 @@
   border-radius: 6px;
   margin: 2px;
 }
-
+/* 
 .card1 :hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: 0.5s;
-}
+} */
 
 .card2 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -36,13 +38,16 @@
 
 .dayscard {
   display: inline-block;
-  background-color: green;
+  background-color: lightgreen;
   padding: 4rem;
 }
 
 .header1 {
-  background-color: rgb(5, 99, 5);
-  border: 1px black solid;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .classes.card {
@@ -50,7 +55,7 @@
 }
 
 .weathericon {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   /* background-image: url("../assets/fern.jpg"); */
 }

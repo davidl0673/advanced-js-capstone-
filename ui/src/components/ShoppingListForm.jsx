@@ -43,7 +43,7 @@ const ShoppingListForm = props => {
           <div>
             <input
               type="text"
-              placeholder="shit you need?"
+              placeholder="some things you might need?"
               onChange={e => setBody(e.target.value)}
               value={body}
             />
