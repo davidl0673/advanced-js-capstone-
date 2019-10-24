@@ -1,5 +1,6 @@
 import React, { useState, useGlobal, useEffect } from "reactn";
 import client from "../api/client";
+import "./Component.css";
 
 const ShoppingListForm = props => {
   const [body, setBody] = useState("");
@@ -15,6 +16,7 @@ const ShoppingListForm = props => {
       {
         item: body
       },
+
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -23,6 +25,7 @@ const ShoppingListForm = props => {
     setBody("");
 
     setItems([...items, data]);
+
     // Add the new shopping list item to your local state
 
     if (props.onSuccess) props.onSuccess(data);
@@ -33,12 +36,29 @@ const ShoppingListForm = props => {
     setItems(data);
   };
 
+  const completeItem = async item => {
+    await client.patch(
+      "/shoppinglist/" + item._id,
+      {
+        ...item,
+        completed: !item.completed
+      },
+      {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }
+    );
+    await getItems();
+  };
+
   useEffect(() => {
     getItems();
   }, []);
   return (
     <>
-      <div className="card1">
+      <div className="card3">
+        <h1>check some stuff you might need </h1>
         <form onSubmit={postShoppingList}>
           <div>
             <input
@@ -48,15 +68,20 @@ const ShoppingListForm = props => {
               value={body}
             />
           </div>
-          <div>
-            <button>Post</button>
-            <div>
-              {items.map(item => (
-                <div key={item._id}>{item.item}</div>
-              ))}
-            </div>
-          </div>
+          <button>Post</button>
         </form>
+        <div>
+          <div>
+            {items.map(item => (
+              <div>
+                <div key={item._id}>{item.item}</div>
+                <button onClick={() => completeItem(item)}>
+                  {!item.completed ? "Complete" : "Uncomplete"}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

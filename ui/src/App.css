@@ -1,30 +1,9 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
- .App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} 
-
-.App-link {
-  color: #09d3ac;
-} */
-
 body {
   background-image: url("./assets/grass.jpg");
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-size: cover;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .header1 {
@@ -63,5 +42,17 @@ img {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 3px;
   width: 300px;
-  background-color: green;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  font-size: 2em;
+}
+
+.card3 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 3px;
+  width: 50%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  font-size: 2em;
 }

@@ -69,11 +69,11 @@ const ScheduleForm = props => {
 
   return (
     <>
-      <div className="card2">
+      <div className="card3">
         <DateTimePicker onChange={handleDateChange} />
       </div>
 
-      <div className="card2">
+      <div className="card3">
         <form onSubmit={postSchedule}>
           <div>
             <input

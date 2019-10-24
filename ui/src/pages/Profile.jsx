@@ -30,6 +30,7 @@ const Profile = () => {
         <div>
           <div>
             <div>Welcome!</div>
+
             <em>{profile.email}</em>
           </div>
         </div>

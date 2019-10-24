@@ -12,6 +12,10 @@ const shoppinglistSchema = Schema(
     user: {
       type: ObjectId,
       ref: "User"
+    },
+    completed: {
+      type: Boolean,
+      default: false
     }
   },
   {
