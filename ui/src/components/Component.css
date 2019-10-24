@@ -57,5 +57,6 @@
 .weathericon {
   width: 80px;
   height: 80px;
+  background-size: contain;
   /* background-image: url("../assets/fern.jpg"); */
 }

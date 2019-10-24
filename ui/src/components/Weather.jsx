@@ -55,7 +55,8 @@ const GetWeather = () => {
       <Card
         style={{
           color: "white",
-          backgroundImage: `url(${fern2})`
+          backgroundImage: `url(${fern2})`,
+          backgroundSize: "contain"
         }}
         className={classes.card}>
         <CardContent>
