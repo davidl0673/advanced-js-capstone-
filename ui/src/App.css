@@ -24,7 +24,7 @@ body {
   background-image: url("./assets/grass.jpg");
   width: 100vw;
   height: 100vh;
-  background-size: contain;
+  background-size: cover;
 }
 
 .header1 {

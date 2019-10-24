@@ -57,6 +57,23 @@
 .weathericon {
   width: 80px;
   height: 80px;
-  background-size: contain;
   /* background-image: url("../assets/fern.jpg"); */
+}
+
+.homeheader {
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 5em;
+
+  /* Background styles */
+  background-image: url("../assets/outside2.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }

@@ -117,7 +117,7 @@ function App() {
     <>
       <Router>
         <Navbar2 />
-        <h1 className="header1">Welcome to my farm assistant </h1>
+        <h1 className="homeheader">Welcome to my farm assistant </h1>
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/sign-up" component={SignUp} />
