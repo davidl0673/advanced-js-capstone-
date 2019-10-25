@@ -94,31 +94,10 @@ const ScheduleForm = props => {
           </div>
           <div>
             <button>Post</button>
-            {/* <div>
-              {tasks.map(task => (
-                <div key={task._id}>
-                  {task.task}
-                  {moment(task.date).format("MM/DD/YYYY hh:mma")}
-                </div>
-              ))}
-            </div> */}
           </div>
         </form>
         <h1 className="header1">Upcoming tasks</h1>
       </div>
-      {/* {Object.keys(days).map(day => {
-        const tasks = days[day];
-        return (
-          <div key={day} className="dayscard">
-            <h2>{day}</h2>
-            <div>
-              {tasks.map(task => (
-                <div key={tasks._id}>{task.task}</div>
-              ))}
-            </div>
-          </div>
-        );
-      })} */}
 
       <div
         style={{

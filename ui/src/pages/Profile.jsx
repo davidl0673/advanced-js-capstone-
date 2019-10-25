@@ -24,7 +24,7 @@ const Profile = () => {
   }, [token]);
 
   return (
-    <div className="card2">
+    <div className="card4">
       <h1>Profile:</h1>
       {profile && (
         <div>

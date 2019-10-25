@@ -85,7 +85,7 @@ const ShoppingListForm = props => {
               <div>
                 <div key={item._id}>{item.item}</div>
                 <button onClick={() => completeItem(item)}>
-                  {!item.completed ? "Completed" : "Not completed"}
+                  {!item.completed ? "Not complete" : "Complete"}
                 </button>
                 <button onClick={() => deleteItem(item)}>Delete</button>
               </div>
