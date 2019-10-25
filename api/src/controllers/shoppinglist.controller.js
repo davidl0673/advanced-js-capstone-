@@ -55,8 +55,6 @@ router.patch("/:_id", [jwtMiddleware], async (req, res) => {
   if (!shoppinglist) return res.sendStatus(404);
   if (!req.user._id.equals(shoppinglist.user._id)) return res.sendStatus(401);
 
-  console.log(req.user._id);
-  console.log(shoppinglist.user._id);
   shoppinglist.set(req.body);
   await shoppinglist.save();
 

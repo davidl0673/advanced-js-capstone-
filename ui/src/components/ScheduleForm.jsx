@@ -49,10 +49,6 @@ const ScheduleForm = props => {
     setTasks(data);
   };
 
-  useEffect(() => {
-    getTasks();
-  }, []);
-
   const days = {};
 
   if (tasks) {
@@ -67,6 +63,19 @@ const ScheduleForm = props => {
     });
   }
 
+  const deleteTask = async item => {
+    await client.delete("/schedule/" + item._id, {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    });
+
+    await getTasks();
+  };
+
+  useEffect(() => {
+    getTasks();
+  }, []);
   return (
     <>
       <div className="card3">
@@ -132,7 +141,12 @@ const ScheduleForm = props => {
                   </Typography>
 
                   {tasks.map(task => (
-                    <div key={tasks._id}>{task.task}</div>
+                    <div>
+                      <div key={tasks._id}>{task.task}</div>
+                      <div>
+                        <button onClick={() => deleteTask(task)}>Delete</button>
+                      </div>
+                    </div>
                   ))}
                 </CardContent>
               </CardActionArea>

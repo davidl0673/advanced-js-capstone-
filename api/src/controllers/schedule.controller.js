@@ -8,8 +8,6 @@ const router = AsyncRouter();
 
 const createValidators = [check("body").exists];
 
-const updateValidators = [check("body").exists];
-
 // List
 router.get("/", async (req, res) => {
   const schedule = await Schedule.find({}).populate({
@@ -53,8 +51,9 @@ router.delete(
   "/:_id",
   [...createValidators, jwtMiddleware, handleValidationErrors],
   async (req, res) => {
-    const schedule = await schedule.findById(req.params._id);
+    const schedule = await Schedule.findById(req.params._id);
 
+    console.log(schedule);
     await schedule.remove();
 
     res.send(schedule);

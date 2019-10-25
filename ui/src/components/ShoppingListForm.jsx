@@ -52,12 +52,21 @@ const ShoppingListForm = props => {
     await getItems();
   };
 
+  const deleteItem = async item => {
+    await client.delete("/shoppinglist/" + item._id, {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    });
+    await getItems();
+  };
+
   useEffect(() => {
     getItems();
   }, []);
   return (
     <>
-      <div className="card3">
+      <div className="card4">
         <h1>check some stuff you might need </h1>
         <form onSubmit={postShoppingList}>
           <div>
@@ -76,8 +85,9 @@ const ShoppingListForm = props => {
               <div>
                 <div key={item._id}>{item.item}</div>
                 <button onClick={() => completeItem(item)}>
-                  {!item.completed ? "Complete" : "Uncomplete"}
+                  {!item.completed ? "Completed" : "Not completed"}
                 </button>
+                <button onClick={() => deleteItem(item)}>Delete</button>
               </div>
             ))}
           </div>
