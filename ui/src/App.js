@@ -27,6 +27,11 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import HomeIcon from "@material-ui/icons/Home";
+import FaceIcon from "@material-ui/icons/Face";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Navbar2 = () => {
+const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const history = useHistory();
   const classes = useStyles();
@@ -59,20 +64,39 @@ const Navbar2 = () => {
     <div className={classes.root}>
       {token && (
         <Drawer
-          className="drawer"
+          classes={{ paper: "drawer" }}
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}>
           <List>
             <ListItem onClick={() => goToPage("")} button>
+              <ListItemIcon>
+                {" "}
+                <HomeIcon />{" "}
+              </ListItemIcon>
               <ListItemText primary="Home"></ListItemText>
             </ListItem>
             <ListItem onClick={() => goToPage("profile")} button>
+              <ListItemIcon>
+                {" "}
+                <FaceIcon />{" "}
+              </ListItemIcon>
+
               <ListItemText primary="Profile"></ListItemText>
             </ListItem>
             <ListItem onClick={() => goToPage("schedule")} button>
+              <ListItemIcon>
+                {" "}
+                <CalendarTodayIcon />{" "}
+              </ListItemIcon>
+
               <ListItemText primary="Schedule"></ListItemText>
             </ListItem>
             <ListItem onClick={() => goToPage("shoppinglist")} button>
+              <ListItemIcon>
+                {" "}
+                <FormatListBulletedIcon />{" "}
+              </ListItemIcon>
+
               <ListItemText primary="Shoppinglist"></ListItemText>
             </ListItem>
           </List>
@@ -89,7 +113,7 @@ const Navbar2 = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Hello
+            FarmAssistant
           </Typography>
           {!token && (
             <>
@@ -116,8 +140,8 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar2 />
-        <h1 className="homeheader">Welcome to my farm assistant </h1>
+        <Navbar />
+        <h1 className="homeheader">Welcome to my FarmAssistant </h1>
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/sign-up" component={SignUp} />

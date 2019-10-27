@@ -1,0 +1,2 @@
+change farm name to look like an app 
+work on text and background image matching  
