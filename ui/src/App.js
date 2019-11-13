@@ -76,13 +76,10 @@ const Navbar = () => {
         <Drawer
           classes={{ paper: "drawer" }}
           open={drawerOpen}
-          onClose={() => setDrawerOpen(false)}>
+          onClose={() => setDrawerOpen(false)}
+        >
           <Grid container justify="center" alignItems="center">
-            <Avatar
-              alt="Remy Sharp"
-              src={seedling}
-              className={classes.bigAvatar}
-            />
+            <Avatar src={seedling} className={classes.bigAvatar} />
           </Grid>
           <List>
             <ListItem onClick={() => goToPage("")} button>
@@ -126,7 +123,8 @@ const Navbar = () => {
             edge="start"
             className={classes.menuButton}
             color="inherit"
-            aria-label="menu">
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
