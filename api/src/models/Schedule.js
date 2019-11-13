@@ -10,7 +10,8 @@ const scheduleSchema = Schema(
     },
     user: {
       type: ObjectId,
-      ref: "User"
+      ref: "User",
+      required: true
     },
     task: {
       type: String,

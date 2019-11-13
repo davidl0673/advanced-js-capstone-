@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
 import User from "./pages/User";
+import Bio from "./pages/Bio";
 import ShoppingList from "./pages/ShoppingList";
 import Schedule from "./pages/Schedule";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,7 +25,9 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
+import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
+import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -32,6 +35,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import FaceIcon from "@material-ui/icons/Face";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+import seedling from "./assets/seedling.jpeg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,6 +46,12 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1
+  },
+
+  bigAvatar: {
+    margin: 10,
+    width: 60,
+    height: 60
   }
 }));
 
@@ -67,6 +77,13 @@ const Navbar = () => {
           classes={{ paper: "drawer" }}
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}>
+          <Grid container justify="center" alignItems="center">
+            <Avatar
+              alt="Remy Sharp"
+              src={seedling}
+              className={classes.bigAvatar}
+            />
+          </Grid>
           <List>
             <ListItem onClick={() => goToPage("")} button>
               <ListItemIcon>
@@ -126,9 +143,14 @@ const Navbar = () => {
             </>
           )}
           {token && (
-            <Button onClick={logout} color="inherit">
-              Log out{" "}
-            </Button>
+            <>
+              <Button onClick={logout} color="inherit">
+                Log out{" "}
+              </Button>
+              <Button onClick={() => goToPage("Bio")} color="inherit">
+                Contact
+              </Button>
+            </>
           )}
         </Toolbar>
       </AppBar>
@@ -145,6 +167,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/sign-up" component={SignUp} />
+        <Route path="/Bio" component={Bio} />
         <Route path="/user/:userId" component={User} />
         <PrivateRoute path="/profile" component={Profile} />
         {/* <Route component={NotFound} /> */}

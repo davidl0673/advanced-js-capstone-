@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "reactn";
 import axios from "axios";
-import fern2 from "../assets/fern2.jpg";
+import cloud from "../assets/cloud.jpeg";
 
 import "./Component.css";
 import { makeStyles } from "@material-ui/core/styles";
@@ -54,11 +54,12 @@ const GetWeather = () => {
     <div className="weather">
       <Card
         style={{
-          color: "white",
-          backgroundImage: `url(${fern2})`,
+          color: "black",
+          backgroundImage: `url(${cloud})`,
           backgroundSize: "contain"
         }}
-        className={classes.card}>
+        className={classes.card}
+      >
         <CardContent>
           <Typography variant="h5" component="h2">
             <div>

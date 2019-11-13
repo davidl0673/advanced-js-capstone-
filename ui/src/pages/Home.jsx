@@ -93,7 +93,8 @@ const Home = () => {
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
               index={activeStep}
               onChangeIndex={handleStepChange}
-              enableMouseEvents>
+              enableMouseEvents
+            >
               {tutorialSteps.map((step, index) => (
                 <div key={step.label}>
                   {Math.abs(activeStep - index) <= 2 ? (
@@ -115,7 +116,8 @@ const Home = () => {
                 <Button
                   size="small"
                   onClick={handleNext}
-                  disabled={activeStep === maxSteps - 1}>
+                  disabled={activeStep === maxSteps - 1}
+                >
                   Next
                   {theme.direction === "rtl" ? (
                     <KeyboardArrowLeft />
@@ -128,7 +130,8 @@ const Home = () => {
                 <Button
                   size="small"
                   onClick={handleBack}
-                  disabled={activeStep === 0}>
+                  disabled={activeStep === 0}
+                >
                   {theme.direction === "rtl" ? (
                     <KeyboardArrowRight />
                   ) : (
